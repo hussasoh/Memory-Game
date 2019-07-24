@@ -124,6 +124,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Difficulty.cs" />
+    <Compile Include="Models\GameMode.cs" />
+    <Compile Include="Models\GameRound.cs" />
+    <Compile Include="Models\MemoryGame.cs" />
     <Compile Include="Models\MemoryItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
