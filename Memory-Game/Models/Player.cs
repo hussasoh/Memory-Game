@@ -7,12 +7,24 @@ namespace Memory_Game.Models
 {
     public class Player
     {
+        /// <summary>
+        /// The player's account username
+        /// </summary>
         private string _username;
 
-        private int _score;
+        /// <summary>
+        /// The player's score for the current game
+        /// </summary>
+        private Score _score;
 
+        /// <summary>
+        /// The player's remaining lives
+        /// </summary>
         private int _lives;
 
+        /// <summary>
+        /// Ensures the username is not null of empty
+        /// </summary>
         public string Username
         {
             get { return _username; }
@@ -25,6 +37,9 @@ namespace Memory_Game.Models
             }
         }
 
+        /// <summary>
+        /// Ensures the player's remaining lives will not drop below 0
+        /// </summary>
         public int Lives
         {
             get { return _lives; }
@@ -37,36 +52,49 @@ namespace Memory_Game.Models
             }
         }
 
-        public int Score
+        /// <summary>
+        /// Creates a new player with a score of 0 (for starting a game)
+        /// </summary>
+        /// <param name="username">The player's username</param>
+        /// <param name="difficulty">The game's starting difficulty</param>
+        /// <param name="mode">The game mode</param>
+        public Player(string username, Difficulty difficulty, GameMode mode)
         {
-            get { return _score; }
-            set
-            {
-                if (value > 0)
-                    _score = value;
-                else
-                    throw new Exception(message: "Score cannot be negative");
-            }
+            Username = username;
+            _score = new Score(Username, 0, difficulty, mode);
         }
 
-        public Player()
-        {
-
-        }
-
+        // maybe put this somewhere else
         public void Guess()
         {
 
         }
 
+        /// <summary>
+        /// Decrement the player's life count when they lose a round
+        /// </summary>
         public void LoseLife()
         {
-
+            Lives--;
+            if (Lives < 0)
+                GameOver();
         }
 
+        /// <summary>
+        /// Increment the score by the amount the player gained this round
+        /// </summary>
+        /// <param name="score">The amount to increase the score by</param>
         public void GainScore(int score)
         {
-            Score--;
+            _score.IncreaseScore(score);
+        }
+
+        /// <summary>
+        /// Handles end of game logic once the player has lost all their lives.
+        /// </summary>
+        public void GameOver()
+        {
+            Console.WriteLine("Game over");
         }
     }
 }

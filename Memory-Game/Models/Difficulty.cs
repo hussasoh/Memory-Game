@@ -5,6 +5,9 @@ using System.Web;
 
 namespace Memory_Game.Models
 {
+    /// <summary>
+    /// Represents the game's difficulty level.
+    /// </summary>
     public enum Difficulty
     {
         EASY,

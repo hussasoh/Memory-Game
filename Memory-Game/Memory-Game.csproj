@@ -129,6 +129,13 @@
     <Compile Include="Models\GameRound.cs" />
     <Compile Include="Models\MemoryGame.cs" />
     <Compile Include="Models\MemoryItem.cs" />
+    <Compile Include="Models\MemoryLetter.cs" />
+    <Compile Include="Models\MemoryNumber.cs" />
+    <Compile Include="Models\MemorySequence.cs" />
+    <Compile Include="Models\MemoryShape.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Score.cs" />
+    <Compile Include="Models\Shape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

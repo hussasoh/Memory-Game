@@ -21,6 +21,13 @@ namespace Memory_Game.Models
             }
         }
 
+        /// <summary>
+        /// Creates a randomly generated memory letter
+        /// </summary>
+        public MemoryLetter()
+        {
+            GenerateItem();
+        }
 
         /// <summary>
         /// Generates a random uppercase letter

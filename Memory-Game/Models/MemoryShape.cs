@@ -22,6 +22,14 @@ namespace Memory_Game.Models
         }
 
         /// <summary>
+        /// Creates a randomly generated MemoryShape
+        /// </summary>
+        public MemoryShape()
+        {
+            GenerateItem();
+        }
+
+        /// <summary>
         /// Generates a random Shape
         /// </summary>
         override public void GenerateItem()
@@ -68,7 +76,5 @@ namespace Memory_Game.Models
 
             return same;
         }
-
-
     }
 }

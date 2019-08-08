@@ -25,6 +25,14 @@ namespace Memory_Game.Models
         }
 
         /// <summary>
+        /// Creates a randomly generated MemoryNumber
+        /// </summary>
+        public MemoryNumber()
+        {
+            GenerateItem();
+        }
+
+        /// <summary>
         /// Generates a random number between 0 and 9
         /// </summary>
         override public void GenerateItem()
