@@ -150,17 +150,14 @@ namespace Memory_Game.Controllers
         {
             if(submit.Equals("Play!"))
             {
-                Response.Write("Clicked game settings");
                 return View("GameSettings");
             }
             else if (submit.Equals("Account"))
             {
-                Response.Write("Clicked account");
                 return View("Account");
             }
             else
             {
-                Response.Write("Bad button click no biscuit");
                 return View();
             }
         }
