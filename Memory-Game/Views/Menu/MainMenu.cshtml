@@ -1,8 +1,33 @@
-﻿@model Memory_Game.Models.User
-
-@{
-    ViewBag.Title = "MainMenu";
+﻿@{
+	ViewBag.Title = "MainMenu";
 }
 
-<h2>MainMenu</h2>
+<h2>Main Menu</h2>
 
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input name="submit" type="submit" value="Play!" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+
+}
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input name="submit" type="submit" value="Account" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+
+}

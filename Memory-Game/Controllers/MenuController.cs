@@ -91,17 +91,12 @@ namespace Memory_Game.Controllers
         }
 
         // GET: Menu/Edit/5
-        public ActionResult Account(int? id)
+        public ActionResult Account()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+            User user = new User();
+            user.Id = 1;
+            user.username = "Laura";
+            user.password = "SomePassword";
             return View(user);
         }
 
@@ -110,29 +105,32 @@ namespace Memory_Game.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Account([Bind(Include = "Id,username,password")] User user)
+        public ActionResult Account([Bind(Include = "Id,username,password")] User user, string submit)
         {
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(user.username) && !string.IsNullOrEmpty(user.password))
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if(submit.Equals("Save"))
+                {
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return View("Account");
+                }
+                else if(submit.Equals("Delete Account"))
+                {
+                    return View("Delete");
+                }
+
             }
             return View(user);
         }
 
         // GET: Menu/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+            User user = new User();
+            user.Id = 1;
+            user.username = "Laura";
+            user.password = "SomePassword";
             return View(user);
         }
 
@@ -145,6 +143,32 @@ namespace Memory_Game.Controllers
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult MainMenu(string submit)
+        {
+            if(submit.Equals("Play!"))
+            {
+                Response.Write("Clicked game settings");
+                return View("GameSettings");
+            }
+            else if (submit.Equals("Account"))
+            {
+                Response.Write("Clicked account");
+                return View("Account");
+            }
+            else
+            {
+                Response.Write("Bad button click no biscuit");
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult GameSettings()
+        {
+            return View("GameSettings");
         }
 
         protected override void Dispose(bool disposing)

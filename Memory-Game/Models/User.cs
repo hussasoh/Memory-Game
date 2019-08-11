@@ -30,6 +30,7 @@ namespace Memory_Game.Models
         /// The user's display name (will also be their player name)
         /// </summary>
         [Required(ErrorMessage="Please enter a username")]
+        [Display(Name = "Username")]
         public string username { get; set; }
 
         /// <summary>
@@ -37,6 +38,7 @@ namespace Memory_Game.Models
         /// 
         /// </summary>
         [Required(ErrorMessage="Please enter a password")]
+        [Display(Name = "Password")]
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,7 +11,8 @@ namespace Memory_Game.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Score
     {
         /// <summary>
@@ -22,6 +23,7 @@ namespace Memory_Game.Models
         /// <summary>
         /// The score itself
         /// </summary>
+        [Display(Name = "Score")]
         public int score1 { get; set; }
 
         /// <summary>
