@@ -15,7 +15,7 @@ namespace Memory_Game.Models
         /// <summary>
         /// The player's score for the current game
         /// </summary>
-        private Score _score;
+        private ScoreBackup _score;
 
         /// <summary>
         /// The player's remaining lives
@@ -61,7 +61,7 @@ namespace Memory_Game.Models
         public Player(string username, Difficulty difficulty, GameMode mode)
         {
             Username = username;
-            _score = new Score(Username, 0, difficulty, mode);
+            _score = new ScoreBackup(Username, 0, difficulty, mode);
         }
 
         // maybe put this somewhere else
